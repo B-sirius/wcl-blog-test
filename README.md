@@ -6,8 +6,9 @@
 
 1. make sure you have `docker` and `docker-compose` installed.
 2. enter `app` folder.
-3. run `docker-compose up -d` in your cli.
-4. visit `localhost:1337`, you should see the strapi admin panel (first launch will take a while).
+3. copy `.env.example`, use it as your local `.env` file.
+4. run `docker-compose up -d` in your cli.
+5. visit `localhost:1337`, you should see the strapi admin panel (first launch will take a while).
 
 ## start blog app locally
 
