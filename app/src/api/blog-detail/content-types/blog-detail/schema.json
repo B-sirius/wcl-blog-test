@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_details",
+  "info": {
+    "singularName": "blog-detail",
+    "pluralName": "blog-details",
+    "displayName": "BlogDetail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "detail": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
