@@ -21,7 +21,7 @@ export async function getPostBySlug(slug) {
 }
 
 export async function getAllPosts() {
-  const postList = (await getPostSlugs())
+  const postList = ((await getPostSlugs()) || [])
     .map(item => {
       const { id, attributes } = item;
       return {
