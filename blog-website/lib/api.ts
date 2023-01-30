@@ -1,22 +1,22 @@
 import axios from 'axios'
 
 export async function getPostSlugs() {
-  const res = (await axios.get(`http://localhost:1337/api/blogs?populate=coverImage`));
+  const res = (await axios.get(`${process.env.NEXT_PUBLIC_CMS_DOMAIN}/api/blogs?populate=coverImage`));
   const postList = res.data.data;
   return postList;
 }
 
 export async function getPostBySlug(slug) {
-  const res = (await axios.get(`http://localhost:1337/api/blogs/${slug}?populate=*`));
+  const res = (await axios.get(`${process.env.NEXT_PUBLIC_CMS_DOMAIN}/api/blogs/${slug}?populate=coverImage`));
   const { id, attributes } = res.data.data;
   const { detail, title, coverImage, date, description } = attributes;
   return {
     slug: id,
-    content: detail.data.attributes.detail,
+    content: detail,
     title,
     date,
     excerpt: description,
-    coverImage: `http://localhost:1337${coverImage.data.attributes.url}`
+    coverImage: `${process.env.NEXT_PUBLIC_CMS_DOMAIN}${coverImage.data.attributes.url}`
   };
 }
 
@@ -29,7 +29,7 @@ export async function getAllPosts() {
         title: attributes.title,
         excerpt: attributes.description,
         date: attributes.date,
-        coverImage: `http://localhost:1337${attributes.coverImage.data.attributes.url}`
+        coverImage: `${process.env.NEXT_PUBLIC_CMS_DOMAIN}${attributes.coverImage.data.attributes.url}`
       };
     });
   const posts = postList
