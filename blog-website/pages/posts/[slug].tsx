@@ -59,7 +59,6 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = await getPostBySlug(params.slug);
-  console.log(post);
   const content = await markdownToHtml(post.content || '')
 
   return {
